@@ -36,11 +36,14 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
         jCheckBox1 = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
         edtRef = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("GUI/Bundle"); // NOI18N
         setTitle(bundle.getString("EnderecoForm.title")); // NOI18N
         setName("Form"); // NOI18N
         setPreferredSize(new java.awt.Dimension(598, 595));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         btnSair1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/finalizar-1.png"))); // NOI18N
         btnSair1.setToolTipText(bundle.getString("EnderecoForm.btnSair1.toolTipText")); // NOI18N
@@ -51,6 +54,7 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                 btnSair1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSair1, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 482, 87, -1));
 
         btnCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/cancel-1.png"))); // NOI18N
         btnCancelar1.setToolTipText(bundle.getString("EnderecoForm.btnCancelar1.toolTipText")); // NOI18N
@@ -63,6 +67,7 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                 btnCancelar1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 482, -1, -1));
 
         btnSalvar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/salvar.png"))); // NOI18N
         btnSalvar1.setToolTipText(bundle.getString("EnderecoForm.btnSalvar1.toolTipText")); // NOI18N
@@ -75,6 +80,7 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                 btnSalvar1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSalvar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 482, -1, -1));
 
         btnNovo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/cadastro-banco2.png"))); // NOI18N
         btnNovo1.setToolTipText(bundle.getString("EnderecoForm.btnNovo1.toolTipText")); // NOI18N
@@ -85,8 +91,10 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                 btnNovo1ActionPerformed(evt);
             }
         });
+        getContentPane().add(btnNovo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 482, -1, -1));
 
         jSeparator3.setName("jSeparator3"); // NOI18N
+        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 246, 592, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setName("jPanel1"); // NOI18N
@@ -262,7 +270,7 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                                     .add(edtNome1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 212, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
                                 .add(edtRef)))))
-                .add(20, 37, Short.MAX_VALUE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -303,40 +311,25 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                 .addContainerGap(49, Short.MAX_VALUE))
         );
 
-        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(layout.createSequentialGroup()
-                        .add(31, 31, 31)
-                        .add(btnNovo1)
-                        .add(18, 18, 18)
-                        .add(btnSalvar1)
-                        .add(12, 12, 12)
-                        .add(btnCancelar1)
-                        .add(87, 87, 87)
-                        .add(btnSair1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 87, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(jSeparator3)
-                    .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
-                .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 31, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 177, Short.MAX_VALUE)
-                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(btnNovo1)
-                    .add(btnSalvar1)
-                    .add(btnCancelar1)
-                    .add(btnSair1))
-                .addContainerGap())
-        );
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 598, -1));
+
+        jScrollPane1.setName("jScrollPane1"); // NOI18N
+
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jTable1.setName("jTable1"); // NOI18N
+        jScrollPane1.setViewportView(jTable1);
+
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 604, 200));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -478,6 +471,8 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JSeparator jSeparator3;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

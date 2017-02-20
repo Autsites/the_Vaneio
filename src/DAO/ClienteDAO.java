@@ -136,7 +136,7 @@ public class ClienteDAO {
             String SQLInsert = "UPDATE clientes set nome = ?,endereco = ?,id_bairro = ?,telefone = ?, celular = ?, email = ?, ativo = ?, rg = ?, cpf = ? where id = ?";
             PreparedStatement st = Conexao.getConnection().prepareStatement(SQLInsert);
             //-------------------------------------------------
-            st.setArray(1, (Cliente.getNome()));         //|
+            st.setArray(1, (Conexao.$conectar.createArrayOf("TEXT", Cliente.getNome())));         //|
 //            st.setString(2, Cliente.getEndereco());     //|
           //  st.setInt(3, Cliente.getBairro());       //|
   //          st.setString(4, Cliente.getTelefone());     //|
@@ -181,7 +181,7 @@ public class ClienteDAO {
                 
             st.setArray(1,Conexao.$conectar.createArrayOf("TEXT", Cliente.getNome()));                                  //|
             st.setString(2, "");                              //|
-            st.setInt(3, Cliente.getBairro());                                //|
+            st.setArray(3, Conexao.$conectar.createArrayOf("TEXT", Cliente.getBairro().toArray()));                                //|
             st.setString(4, "");                              //|
             st.setString(5, Corretor.ConverterDataSQL(Cliente.getDataCad()));  //|
             st.setString(6, Cliente.getCelular());                               //|
@@ -263,20 +263,28 @@ public class ClienteDAO {
     public void busscarClientes(DefaultTableModel Modelo)  {
 
         try {
-            String SQLSelect = "SELECT clientes.id as id, clientes.nome as nome,"
-                    + "clientes.endereco as endereco, bairros.nome as bairro, clientes.telefone as telefone,"
-                    + "clientes.ativo as ativo FROM clientes INNER JOIN bairros on clientes.id_bairro = bairros.id order by id DESC";
+            String SQLSelect = "SELECT clientes.id as id, (clientes.nome) as nome, array_agg(bairros.nome) as bairro, (clientes.endereco) as endereco,\n" +
+                                "clientes.data_cad as data_cab, clientes.email as email, clientes.rg as rg, clientes.cpf as cpf, clientes.ddd as ddd,\n" +
+                                "clientes.telefone_descricao as descricao, clientes.id_operador as operador, clientes.data_nasc as data_nasc,\n" +
+                                "clientes.referencia as referencia, (clientes.telefone) as telefone, clientes.ativo as ativo  \n" +
+                                "FROM clientes INNER JOIN bairros on bairros.id = any(clientes.id_bairro::INTEGER[]) GROUP BY clientes.id";
             PreparedStatement st = Conexao.getConnection().prepareStatement(SQLSelect);
             ResultSet rs = st.executeQuery();
 
             while (rs.next()) { 
+                
                 //-----------------------------------------------------------------
                 Modelo.addRow(new Object[]{                                  //|
                         rs.getString("id"),                                 //|
-                        rs.getString("nome"),                               //|
-                        rs.getString("endereco"),                           //|
-                        rs.getString("bairro"),                             //|
-                        rs.getArray("telefone"),                           //|
+                        rs.getString("referencia"),
+                        Corretor.converterArray(rs.getArray("nome"))[0],                               //|
+                        Corretor.converterArray(rs.getArray("nome"))[1],                           //|
+                        (Corretor.converterArray(rs.getArray("endereco"))[0] + "(" + Corretor.converterArray(rs.getArray("bairro"))[0] +")"),
+                        ("|" + Corretor.converterArray(rs.getArray("ddd"),0) + "| " + Corretor.converterArray(rs.getArray("telefone"))[0]),
+                        rs.getString("email"),                             //|
+                        rs.getString("operador"),                           //|
+                        rs.getString("rg"),
+                        rs.getString("cpf"),
                         ConverterStatusJava(rs.getBoolean(("ativo")))       //|
                 });                                                     //|
                 //-----------------------------------------------------------------

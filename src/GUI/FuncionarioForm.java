@@ -14,7 +14,7 @@ import javax.swing.JOptionPane;
  *
  * @author Java
  */
-public class FuncionarioForm extends javax.swing.JInternalFrame {
+public class FuncionarioForm extends CreditoForm {
 
     /**
      * The Currency formater.

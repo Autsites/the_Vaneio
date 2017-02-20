@@ -5,6 +5,11 @@
  */
 package Utilitarios;
 
+import java.sql.Array;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.SpringLayout;
 
 /**
@@ -81,6 +86,22 @@ public class Corretor {
         }
     }
 
+    public static String[] converterArray(Array a){
+             String[] m = null;  
+        try {
+              m = (String[]) a.getArray();
+        } catch (SQLException ex) {
+            return  new String[] {ex.getMessage()};
+        } finally {
+            return m;
+        }
+    }
+    
+    public static int converterArray(Array a,int i) throws SQLException{
+           Object[] o = (Object[]) a.getArray();
+        
+            return (int) o[i];
+    }
 }
     
 
