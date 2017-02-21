@@ -2,13 +2,15 @@
 package GUI;
 
 import java.awt.event.KeyEvent;
+import javax.swing.JInternalFrame;
+import GUI.ClienteForm;
 
-
-public class EnderecoForm extends javax.swing.JInternalFrame {
+public class EnderecoForm extends JInternalFrame {
 
     
     public EnderecoForm() {
         initComponents();
+         
     }
 
     @SuppressWarnings("unchecked")
@@ -22,28 +24,35 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
         jSeparator3 = new javax.swing.JSeparator();
         jPanel1 = new javax.swing.JPanel();
         jLabel10 = new javax.swing.JLabel();
-        edtID1 = new javax.swing.JTextField();
-        edtNome1 = new javax.swing.JTextField();
+        edtID = new javax.swing.JTextField();
+        edtCliente = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         edtEndereco = new javax.swing.JTextField();
         cbbCidade = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
-        edtData1 = new javax.swing.JTextField();
+        edtData = new javax.swing.JTextField();
         jLabel9 = new javax.swing.JLabel();
         cbbBairro = new javax.swing.JComboBox<>();
-        jCheckBox1 = new javax.swing.JCheckBox();
+        cbxStatus = new javax.swing.JCheckBox();
         jLabel1 = new javax.swing.JLabel();
-        edtRef = new javax.swing.JTextField();
+        edtReferencia = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        edtComplemento = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        edtObs = new javax.swing.JTextArea();
+        btnBusscar = new javax.swing.JButton();
+        btnRemoverFiltro = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
 
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setResizable(true);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("GUI/Bundle"); // NOI18N
         setTitle(bundle.getString("EnderecoForm.title")); // NOI18N
-        setName("Form"); // NOI18N
-        setPreferredSize(new java.awt.Dimension(598, 595));
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setName("frmEnderecos"); // NOI18N
 
         btnSair1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/finalizar-1.png"))); // NOI18N
         btnSair1.setToolTipText(bundle.getString("EnderecoForm.btnSair1.toolTipText")); // NOI18N
@@ -54,7 +63,6 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                 btnSair1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSair1, new org.netbeans.lib.awtextra.AbsoluteConstraints(437, 482, 87, -1));
 
         btnCancelar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/cancel-1.png"))); // NOI18N
         btnCancelar1.setToolTipText(bundle.getString("EnderecoForm.btnCancelar1.toolTipText")); // NOI18N
@@ -67,7 +75,6 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                 btnCancelar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnCancelar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 482, -1, -1));
 
         btnSalvar1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/salvar.png"))); // NOI18N
         btnSalvar1.setToolTipText(bundle.getString("EnderecoForm.btnSalvar1.toolTipText")); // NOI18N
@@ -80,7 +87,6 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                 btnSalvar1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalvar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(154, 482, -1, -1));
 
         btnNovo1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/cadastro-banco2.png"))); // NOI18N
         btnNovo1.setToolTipText(bundle.getString("EnderecoForm.btnNovo1.toolTipText")); // NOI18N
@@ -91,10 +97,8 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                 btnNovo1ActionPerformed(evt);
             }
         });
-        getContentPane().add(btnNovo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(44, 482, -1, -1));
 
         jSeparator3.setName("jSeparator3"); // NOI18N
-        getContentPane().add(jSeparator3, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 246, 592, -1));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         jPanel1.setName("jPanel1"); // NOI18N
@@ -102,36 +106,36 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
         jLabel10.setText(bundle.getString("EnderecoForm.jLabel10.text")); // NOI18N
         jLabel10.setName("jLabel10"); // NOI18N
 
-        edtID1.setEditable(false);
-        edtID1.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        edtID1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        edtID1.setName("edtID1"); // NOI18N
-        edtID1.addFocusListener(new java.awt.event.FocusAdapter() {
+        edtID.setEditable(false);
+        edtID.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        edtID.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        edtID.setName("edtID"); // NOI18N
+        edtID.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                edtID1FocusGained(evt);
+                edtIDFocusGained(evt);
             }
         });
-        edtID1.addKeyListener(new java.awt.event.KeyAdapter() {
+        edtID.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                edtID1KeyPressed(evt);
+                edtIDKeyPressed(evt);
             }
         });
 
-        edtNome1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        edtNome1.setName("edtNome1"); // NOI18N
-        edtNome1.addFocusListener(new java.awt.event.FocusAdapter() {
+        edtCliente.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        edtCliente.setName("edtCliente"); // NOI18N
+        edtCliente.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                edtNome1FocusGained(evt);
+                edtClienteFocusGained(evt);
             }
         });
-        edtNome1.addMouseListener(new java.awt.event.MouseAdapter() {
+        edtCliente.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                edtNome1MouseClicked(evt);
+                edtClienteMouseClicked(evt);
             }
         });
-        edtNome1.addKeyListener(new java.awt.event.KeyAdapter() {
+        edtCliente.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                edtNome1KeyPressed(evt);
+                edtClienteKeyPressed(evt);
             }
         });
 
@@ -183,17 +187,17 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
         jLabel14.setText(bundle.getString("EnderecoForm.jLabel14.text")); // NOI18N
         jLabel14.setName("jLabel14"); // NOI18N
 
-        edtData1.setEditable(false);
-        edtData1.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        edtData1.setName("edtData1"); // NOI18N
-        edtData1.addFocusListener(new java.awt.event.FocusAdapter() {
+        edtData.setEditable(false);
+        edtData.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        edtData.setName("edtData"); // NOI18N
+        edtData.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                edtData1FocusGained(evt);
+                edtDataFocusGained(evt);
             }
         });
-        edtData1.addKeyListener(new java.awt.event.KeyAdapter() {
+        edtData.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                edtData1KeyPressed(evt);
+                edtDataKeyPressed(evt);
             }
         });
 
@@ -213,64 +217,117 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
             }
         });
 
-        jCheckBox1.setSelected(true);
-        jCheckBox1.setText(bundle.getString("EnderecoForm.jCheckBox1.text")); // NOI18N
-        jCheckBox1.setEnabled(false);
-        jCheckBox1.setName("jCheckBox1"); // NOI18N
+        cbxStatus.setSelected(true);
+        cbxStatus.setText(bundle.getString("EnderecoForm.cbxStatus.text")); // NOI18N
+        cbxStatus.setName("cbxStatus"); // NOI18N
 
         jLabel1.setText(bundle.getString("EnderecoForm.jLabel1.text")); // NOI18N
         jLabel1.setName("jLabel1"); // NOI18N
 
-        edtRef.setText(bundle.getString("EnderecoForm.edtRef.text")); // NOI18N
-        edtRef.setToolTipText("<html>\nReferência:<br>\nUtilize essa seção para criar um alias(Referência) ao endereço que está sendo cadastrado.<br>\nLembrando que não é possível duplicar o alias para esse ou qualquer outro registro.<br>\nExemplos de como utilizar essa secção: Residência do Fulano, Tio do Ciclano, Comercio/Residência Beltrano.\n</html>");
-        edtRef.setName("edtRef"); // NOI18N
+        edtReferencia.setText(bundle.getString("EnderecoForm.edtReferencia.text")); // NOI18N
+        edtReferencia.setToolTipText("<html>\nReferência:<br>\nUtilize essa seção para criar um alias(Referência) ao endereço que está sendo cadastrado.<br>\nLembrando que não é possível duplicar o alias para esse ou qualquer outro registro.<br>\nExemplos de como utilizar essa secção: Residência do Fulano, Tio do Ciclano, Comercio/Residência Beltrano.\n</html>");
+        edtReferencia.setName("edtReferencia"); // NOI18N
+
+        jLabel2.setText(bundle.getString("EnderecoForm.jLabel2.text")); // NOI18N
+        jLabel2.setName("jLabel2"); // NOI18N
+
+        edtComplemento.setText(bundle.getString("EnderecoForm.edtComplemento.text")); // NOI18N
+        edtComplemento.setName("edtComplemento"); // NOI18N
+        edtComplemento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtComplementoActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText(bundle.getString("EnderecoForm.jLabel5.text")); // NOI18N
+        jLabel5.setName("jLabel5"); // NOI18N
+
+        jScrollPane2.setName("jScrollPane2"); // NOI18N
+
+        edtObs.setColumns(20);
+        edtObs.setRows(5);
+        edtObs.setName("edtObs"); // NOI18N
+        jScrollPane2.setViewportView(edtObs);
+
+        btnBusscar.setBackground(new java.awt.Color(183, 28, 28));
+        btnBusscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/filtro6.png"))); // NOI18N
+        btnBusscar.setText(bundle.getString("EnderecoForm.btnBusscar.text")); // NOI18N
+        btnBusscar.setToolTipText(bundle.getString("EnderecoForm.btnBusscar.toolTipText")); // NOI18N
+        btnBusscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBusscar.setName("btnBusscar"); // NOI18N
+        btnBusscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusscarActionPerformed(evt);
+            }
+        });
+
+        btnRemoverFiltro.setBackground(new java.awt.Color(224, 224, 224));
+        btnRemoverFiltro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/removeFiltro1.png"))); // NOI18N
+        btnRemoverFiltro.setText(bundle.getString("EnderecoForm.btnRemoverFiltro.text")); // NOI18N
+        btnRemoverFiltro.setToolTipText(bundle.getString("EnderecoForm.btnRemoverFiltro.toolTipText")); // NOI18N
+        btnRemoverFiltro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRemoverFiltro.setName("btnRemoverFiltro"); // NOI18N
+        btnRemoverFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverFiltroActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(25, 25, 25)
-                .add(jLabel10)
                 .add(18, 18, 18)
-                .add(edtID1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 73, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, Short.MAX_VALUE))
-            .add(jPanel1Layout.createSequentialGroup()
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                    .add(jLabel3)
+                    .add(jLabel8)
+                    .add(jLabel5))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(39, 39, 39)
-                        .add(jLabel14)
-                        .add(18, 18, 18)
-                        .add(edtData1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 88, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(jCheckBox1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 89, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(18, 18, 18)
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel4)
-                                .add(21, 21, 21))
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel8)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED))
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jLabel3)
-                                .add(12, 12, 12)))
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(jPanel1Layout.createSequentialGroup()
                                 .add(cbbCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 163, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                                 .add(18, 18, 18)
                                 .add(jLabel9)
                                 .add(18, 18, 18)
-                                .add(cbbBairro, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .add(edtEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 449, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jPanel1Layout.createSequentialGroup()
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                .add(cbbBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 217, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(19, 19, 19)
+                                .add(jLabel14))
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                                .add(jPanel1Layout.createSequentialGroup()
+                                    .add(112, 112, 112)
                                     .add(jLabel1)
-                                    .add(edtNome1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 212, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                                .add(edtRef)))))
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .add(18, 18, 18)
+                                    .add(edtReferencia, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .add(jLabel4))
+                                .add(jPanel1Layout.createSequentialGroup()
+                                    .add(edtEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 391, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(18, 18, 18)
+                                    .add(jLabel2))))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(edtData, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 88, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(45, 45, 45)
+                                .add(cbxStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 89, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                .add(edtComplemento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 147, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(org.jdesktop.layout.GroupLayout.LEADING, edtCliente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 147, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                    .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 657, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+            .add(jPanel1Layout.createSequentialGroup()
+                .add(25, 25, 25)
+                .add(jLabel10)
+                .add(18, 18, 18)
+                .add(edtID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 73, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+            .add(jPanel1Layout.createSequentialGroup()
+                .add(249, 249, 249)
+                .add(btnBusscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 109, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(40, 40, 40)
+                .add(btnRemoverFiltro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 103, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -281,55 +338,97 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
                         .add(6, 6, 6)
                         .add(jLabel10))
                     .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(edtID1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(edtID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(jLabel1)
-                        .add(edtRef, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .add(6, 6, 6)
+                        .add(edtReferencia, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jLabel4)
+                        .add(edtCliente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel3)
+                    .add(edtEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel2)
+                    .add(edtComplemento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                    .add(jLabel8)
+                    .add(cbbCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel9)
+                    .add(cbbBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(jLabel14)
+                    .add(edtData, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(cbxStatus))
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(8, 8, 8)
-                        .add(jLabel4))
-                    .add(edtNome1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(edtEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel3))
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(cbbCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel8)
-                    .add(jLabel9)
-                    .add(cbbBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                        .add(27, 27, 27)
+                        .add(jLabel5))
                     .add(jPanel1Layout.createSequentialGroup()
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(edtData1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel14)))
-                    .add(jPanel1Layout.createSequentialGroup()
-                        .add(29, 29, 29)
-                        .add(jCheckBox1)))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(btnBusscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 76, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(btnRemoverFiltro))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, 598, -1));
 
         jScrollPane1.setName("jScrollPane1"); // NOI18N
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Código", "Referência", "Endereço", "Complemento", "Bairro", "Ativo"
             }
         ));
         jTable1.setName("jTable1"); // NOI18N
         jScrollPane1.setViewportView(jTable1);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 604, 200));
+        org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(layout.createSequentialGroup()
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(0, 0, Short.MAX_VALUE))
+                    .add(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane1)
+                            .add(jSeparator3))))
+                .addContainerGap())
+            .add(layout.createSequentialGroup()
+                .add(160, 160, 160)
+                .add(btnNovo1)
+                .add(18, 18, 18)
+                .add(btnSalvar1)
+                .add(12, 12, 12)
+                .add(btnCancelar1)
+                .add(87, 87, 87)
+                .add(btnSair1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 87, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(layout.createSequentialGroup()
+                .addContainerGap()
+                .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 201, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .add(18, 18, 18)
+                .add(layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(btnNovo1)
+                    .add(btnSalvar1)
+                    .add(btnCancelar1)
+                    .add(btnSair1))
+                .add(33, 33, 33))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -337,7 +436,8 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
     private void btnSair1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSair1ActionPerformed
 
         //sairForm();
-        
+       
+        dispose();
     }//GEN-LAST:event_btnSair1ActionPerformed
 
     private void btnCancelar1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar1ActionPerformed
@@ -354,28 +454,28 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
 
     }//GEN-LAST:event_btnNovo1ActionPerformed
 
-    private void edtID1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edtID1FocusGained
+    private void edtIDFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edtIDFocusGained
 
-    }//GEN-LAST:event_edtID1FocusGained
+    }//GEN-LAST:event_edtIDFocusGained
 
-    private void edtID1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtID1KeyPressed
+    private void edtIDKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtIDKeyPressed
         if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
 
             //cancelarOperacao();
 
         }
-    }//GEN-LAST:event_edtID1KeyPressed
+    }//GEN-LAST:event_edtIDKeyPressed
 
-    private void edtNome1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edtNome1FocusGained
+    private void edtClienteFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edtClienteFocusGained
 
         //zerarTabela();
-    }//GEN-LAST:event_edtNome1FocusGained
+    }//GEN-LAST:event_edtClienteFocusGained
 
-    private void edtNome1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edtNome1MouseClicked
+    private void edtClienteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_edtClienteMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_edtNome1MouseClicked
+    }//GEN-LAST:event_edtClienteMouseClicked
 
-    private void edtNome1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtNome1KeyPressed
+    private void edtClienteKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtClienteKeyPressed
 
         if (evt.getKeyCode() == KeyEvent.VK_ESCAPE) {
             //cancelarOperacao();
@@ -384,7 +484,7 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
         if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
             edtEndereco.requestFocus();
         }
-    }//GEN-LAST:event_edtNome1KeyPressed
+    }//GEN-LAST:event_edtClienteKeyPressed
 
     private void edtEnderecoFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edtEnderecoFocusGained
 
@@ -426,13 +526,13 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_cbbCidadeKeyPressed
 
-    private void edtData1FocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edtData1FocusGained
+    private void edtDataFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_edtDataFocusGained
         // TODO add your handling code here:
-    }//GEN-LAST:event_edtData1FocusGained
+    }//GEN-LAST:event_edtDataFocusGained
 
-    private void edtData1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtData1KeyPressed
+    private void edtDataKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_edtDataKeyPressed
         // TODO add your handling code here:
-    }//GEN-LAST:event_edtData1KeyPressed
+    }//GEN-LAST:event_edtDataKeyPressed
 
     private void cbbBairroFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_cbbBairroFocusGained
         // TODO add your handling code here:
@@ -449,29 +549,48 @@ public class EnderecoForm extends javax.swing.JInternalFrame {
         }
     }//GEN-LAST:event_cbbBairroKeyPressed
 
+    private void edtComplementoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtComplementoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_edtComplementoActionPerformed
+
+    private void btnBusscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBusscarActionPerformed
+
+    private void btnRemoverFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFiltroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoverFiltroActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBusscar;
     private javax.swing.JButton btnCancelar1;
     private javax.swing.JButton btnNovo1;
+    private javax.swing.JButton btnRemoverFiltro;
     private javax.swing.JButton btnSair1;
     private javax.swing.JButton btnSalvar1;
     private javax.swing.JComboBox<String> cbbBairro;
     private javax.swing.JComboBox<String> cbbCidade;
-    private javax.swing.JTextField edtData1;
+    private javax.swing.JCheckBox cbxStatus;
+    private javax.swing.JTextField edtCliente;
+    private javax.swing.JTextField edtComplemento;
+    private javax.swing.JTextField edtData;
     private javax.swing.JTextField edtEndereco;
-    private javax.swing.JTextField edtID1;
-    private javax.swing.JTextField edtNome1;
-    private javax.swing.JTextField edtRef;
-    private javax.swing.JCheckBox jCheckBox1;
+    private javax.swing.JTextField edtID;
+    private javax.swing.JTextArea edtObs;
+    private javax.swing.JTextField edtReferencia;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator3;
     private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables

@@ -265,9 +265,10 @@ public class ClienteDAO {
         try {
             String SQLSelect = "SELECT clientes.id as id, (clientes.nome) as nome, array_agg(bairros.nome) as bairro, (clientes.endereco) as endereco,\n" +
                                 "clientes.data_cad as data_cab, clientes.email as email, clientes.rg as rg, clientes.cpf as cpf, clientes.ddd as ddd,\n" +
-                                "clientes.telefone_descricao as descricao, clientes.id_operador as operador, clientes.data_nasc as data_nasc,\n" +
-                                "clientes.referencia as referencia, (clientes.telefone) as telefone, clientes.ativo as ativo  \n" +
-                                "FROM clientes INNER JOIN bairros on bairros.id = any(clientes.id_bairro::INTEGER[]) GROUP BY clientes.id";
+                                "clientes.telefone_descricao as descricao, funcionarios.nome as operador, clientes.data_nasc as data_nasc,\n" +
+                                "clientes.referencia as referencia, (clientes.telefone) as telefone, clientes.ativo as ativo\n" +
+                                "FROM clientes INNER JOIN bairros on bairros.id = any(clientes.id_bairro::INTEGER[]) INNER JOIN funcionarios\n" +
+                                "on clientes.id_operador = funcionarios.id GROUP BY clientes.id,funcionarios.nome";
             PreparedStatement st = Conexao.getConnection().prepareStatement(SQLSelect);
             ResultSet rs = st.executeQuery();
 
@@ -279,7 +280,7 @@ public class ClienteDAO {
                         rs.getString("referencia"),
                         Corretor.converterArray(rs.getArray("nome"))[0],                               //|
                         Corretor.converterArray(rs.getArray("nome"))[1],                           //|
-                        (Corretor.converterArray(rs.getArray("endereco"))[0] + "(" + Corretor.converterArray(rs.getArray("bairro"))[0] +")"),
+                        (Corretor.converterArray(rs.getArray("endereco"))[0] + " - (" + Corretor.converterArray(rs.getArray("bairro"))[0] +")"),
                         ("|" + Corretor.converterArray(rs.getArray("ddd"),0) + "| " + Corretor.converterArray(rs.getArray("telefone"))[0]),
                         rs.getString("email"),                             //|
                         rs.getString("operador"),                           //|

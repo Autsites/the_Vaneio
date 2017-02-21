@@ -27,7 +27,7 @@ public class Principal extends javax.swing.JFrame {
     /**
      * The Tela.
      */
-    public FundoTela tela;
+    public static FundoTela tela;
     /**
      * The Cliente.
      */
@@ -73,7 +73,9 @@ public class Principal extends javax.swing.JFrame {
         
     }
 
-    
+    public static Container getTela(){
+        return tela;
+    }
     private void iconTela() {
         Toolkit kit = Toolkit.getDefaultToolkit();  
         Dimension tamTela = kit.getScreenSize(); 
@@ -277,7 +279,7 @@ public class Principal extends javax.swing.JFrame {
         tela.add(frm);
     }
     
-    private boolean controleInternal(JInternalFrame frm){
+    public static boolean controleInternal(JInternalFrame frm){
        
         for (JInternalFrame frame: tela.getAllFrames()) {
             if(frame.getClass().toString().equalsIgnoreCase(frm.getClass().toString())){
