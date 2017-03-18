@@ -62,14 +62,14 @@ public class Conexao {
 
         //Etec PostgreSQL Connect
     private String $link = "postgresql";
-    private  String $host = "localhost";
+    private  String $host = "radbug.autsites.com";
     private  String $port = "5432";
     private  String $bank = "pizzaria";
     
     private  String $driver = "org.postgresql.Driver";
     
-    private  String $user = "postgres";
-    private  String $pass = "root";
+    private  String $user = "pizzaria_user";
+    private  String $pass = "the_vaneio";
     
     
     private  String $juntar = "jdbc:"+$link+"://"+$host+":"+$port+"/"+$bank;
