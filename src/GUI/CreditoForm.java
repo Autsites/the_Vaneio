@@ -14,7 +14,7 @@ public class CreditoForm extends javax.swing.JInternalFrame {
      */
     public CreditoForm() {
         initComponents();
-        lblTitulo.setText(Controller.Controlar.get$titulo() + " - Sistema de Pizzaria ™");
+        lblTitulo.setText(Controller.ConfiguracaoMaster.get$titulo() + " - Sistema de Pizzaria ™");
 
         
     }

@@ -2,10 +2,8 @@ package Controller;
 
 import Beans.ClienteBeans;
 import DAO.ClienteDAO;
-import java.awt.Component;
 import java.awt.Dimension;
 import java.text.ParseException;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;

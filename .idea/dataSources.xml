@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="Pizzaria" uuid="f30c9f2f-59be-4fe1-bbe5-f9dd5e73c09d">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://b0vgpytupagaeif-postgresql.services.clever-cloud.com:5432/b0vgpytupagaeif</jdbc-url>
+    </data-source>
+    <data-source source="LOCAL" name="pizzaria@localhost" uuid="32f858d7-06cd-47d3-bdb8-553f31072027">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/pizzaria</jdbc-url>
+    </data-source>
+  </component>
+</project>

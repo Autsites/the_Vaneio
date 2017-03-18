@@ -1,6 +1,6 @@
 package GUI;
 
-import Controller.Controlar;
+import Controller.ConfiguracaoMaster;
 import Controller.FuncionarioController;
 import Utilitarios.CurrencyFormater;
 import java.util.ArrayList;
@@ -79,36 +79,39 @@ public class FuncionarioForm extends CreditoForm {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblFuncionario = new javax.swing.JTable();
-        btnBusscar = new javax.swing.JButton();
-        btnMTudo = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jPanel2 = new javax.swing.JPanel();
-        jSeparator3 = new javax.swing.JSeparator();
-        jSeparator4 = new javax.swing.JSeparator();
-        cbbCargo = new javax.swing.JComboBox<>();
-        cbbCidade = new javax.swing.JComboBox<>();
-        cbbBairro = new javax.swing.JComboBox<>();
-        btnSair = new javax.swing.JButton();
-        btnCancelar = new javax.swing.JButton();
-        btnSalvar = new javax.swing.JButton();
-        btnNovo = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         edtNome = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        edtSobrenome = new javax.swing.JTextField();
+        cbbCargo = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
         edtDataAdm = new com.toedter.calendar.JDateChooser();
         jLabel4 = new javax.swing.JLabel();
         edtDataDem = new com.toedter.calendar.JDateChooser();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         edtCarga = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        edtSalario = new javax.swing.JFormattedTextField();
+        jLabel5 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
+        cbbCidade = new javax.swing.JComboBox<>();
         jLabel8 = new javax.swing.JLabel();
-        jLabel9 = new javax.swing.JLabel();
-        edtCep = new javax.swing.JTextField();
+        cbbBairro = new javax.swing.JComboBox<>();
         jLabel10 = new javax.swing.JLabel();
         edtEndereco = new javax.swing.JTextField();
-        edtSalario = new javax.swing.JFormattedTextField();
+        jLabel9 = new javax.swing.JLabel();
+        edtCep = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        edtCpf = new javax.swing.JTextField();
+        jLabel15 = new javax.swing.JLabel();
+        edtRg = new javax.swing.JTextField();
+        chbFun = new javax.swing.JCheckBox();
+        jSeparator3 = new javax.swing.JSeparator();
+        jSeparator4 = new javax.swing.JSeparator();
+        btnSair = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnSalvar = new javax.swing.JButton();
+        btnNovo = new javax.swing.JButton();
         chbUsr = new javax.swing.JCheckBox();
         lblLogin = new javax.swing.JLabel();
         edtLogin = new javax.swing.JTextField();
@@ -117,15 +120,10 @@ public class FuncionarioForm extends CreditoForm {
         cbbPermissao = new javax.swing.JComboBox<>();
         edtSenha = new javax.swing.JPasswordField();
         chbAtivo = new javax.swing.JCheckBox();
-        jLabel14 = new javax.swing.JLabel();
-        edtCpf = new javax.swing.JTextField();
-        jLabel15 = new javax.swing.JLabel();
-        edtRg = new javax.swing.JTextField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        chbFun = new javax.swing.JCheckBox();
-        jLabel11 = new javax.swing.JLabel();
-        edtSobrenome = new javax.swing.JTextField();
+        btnBusscar = new javax.swing.JButton();
+        btnRemoverFiltro = new javax.swing.JButton();
 
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("GUI/Bundle"); // NOI18N
         setTitle(bundle.getString("FuncionarioForm.title")); // NOI18N
@@ -164,41 +162,62 @@ public class FuncionarioForm extends CreditoForm {
             tblFuncionario.getColumnModel().getColumn(6).setHeaderValue(bundle.getString("FuncionarioForm.tblFuncionario.columnModel.title6")); // NOI18N
         }
 
-        btnBusscar.setBackground(new java.awt.Color(183, 28, 28));
-        btnBusscar.setForeground(new java.awt.Color(255, 255, 255));
-        btnBusscar.setText(bundle.getString("FuncionarioForm.btnBusscar.text")); // NOI18N
-        btnBusscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnBusscar.setName("btnBusscar"); // NOI18N
-        btnBusscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBusscarActionPerformed(evt);
-            }
-        });
+        jLabel1.setText(bundle.getString("FuncionarioForm.jLabel1.text")); // NOI18N
+        jLabel1.setName("jLabel1"); // NOI18N
 
-        btnMTudo.setBackground(new java.awt.Color(30, 35, 126));
-        btnMTudo.setForeground(new java.awt.Color(255, 255, 255));
-        btnMTudo.setText(bundle.getString("FuncionarioForm.btnMTudo.text")); // NOI18N
-        btnMTudo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnMTudo.setName("btnMTudo"); // NOI18N
-        btnMTudo.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnMTudoActionPerformed(evt);
-            }
-        });
+        edtNome.setText(bundle.getString("FuncionarioForm.edtNome.text")); // NOI18N
+        edtNome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
+        edtNome.setEnabled(false);
+        edtNome.setName("edtNome"); // NOI18N
 
-        jScrollPane2.setEnabled(false);
-        jScrollPane2.setName("jScrollPane2"); // NOI18N
+        jLabel11.setText(bundle.getString("FuncionarioForm.jLabel11.text")); // NOI18N
+        jLabel11.setName("jLabel11"); // NOI18N
 
-        jPanel2.setAutoscrolls(true);
-        jPanel2.setName("jPanel2"); // NOI18N
-
-        jSeparator3.setName("jSeparator3"); // NOI18N
-
-        jSeparator4.setName("jSeparator4"); // NOI18N
+        edtSobrenome.setText(bundle.getString("FuncionarioForm.edtSobrenome.text")); // NOI18N
+        edtSobrenome.setEnabled(false);
+        edtSobrenome.setName("edtSobrenome"); // NOI18N
 
         cbbCargo.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         cbbCargo.setEnabled(false);
         cbbCargo.setName("cbbCargo"); // NOI18N
+
+        jLabel2.setText(bundle.getString("FuncionarioForm.jLabel2.text")); // NOI18N
+        jLabel2.setName("jLabel2"); // NOI18N
+
+        jLabel3.setText(bundle.getString("FuncionarioForm.jLabel3.text")); // NOI18N
+        jLabel3.setName("jLabel3"); // NOI18N
+
+        edtDataAdm.setEnabled(false);
+        edtDataAdm.setName("edtDataAdm"); // NOI18N
+
+        jLabel4.setText(bundle.getString("FuncionarioForm.jLabel4.text")); // NOI18N
+        jLabel4.setName("jLabel4"); // NOI18N
+
+        edtDataDem.setEnabled(false);
+        edtDataDem.setName("edtDataDem"); // NOI18N
+
+        edtCarga.setText(bundle.getString("FuncionarioForm.edtCarga.text")); // NOI18N
+        edtCarga.setEnabled(false);
+        edtCarga.setName("edtCarga"); // NOI18N
+
+        jLabel6.setText(bundle.getString("FuncionarioForm.jLabel6.text")); // NOI18N
+        jLabel6.setName("jLabel6"); // NOI18N
+
+        currencyFormater.CurrencyFormater(edtSalario);
+        edtSalario.setText(bundle.getString("FuncionarioForm.edtSalario.text")); // NOI18N
+        edtSalario.setEnabled(false);
+        edtSalario.setName("edtSalario"); // NOI18N
+        edtSalario.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                edtSalarioActionPerformed(evt);
+            }
+        });
+
+        jLabel5.setText(bundle.getString("FuncionarioForm.jLabel5.text")); // NOI18N
+        jLabel5.setName("jLabel5"); // NOI18N
+
+        jLabel7.setText(bundle.getString("FuncionarioForm.jLabel7.text")); // NOI18N
+        jLabel7.setName("jLabel7"); // NOI18N
 
         cbbCidade.setEnabled(false);
         cbbCidade.setName("cbbCidade"); // NOI18N
@@ -213,8 +232,49 @@ public class FuncionarioForm extends CreditoForm {
             }
         });
 
+        jLabel8.setText(bundle.getString("FuncionarioForm.jLabel8.text")); // NOI18N
+        jLabel8.setName("jLabel8"); // NOI18N
+
         cbbBairro.setEnabled(false);
         cbbBairro.setName("cbbBairro"); // NOI18N
+
+        jLabel10.setText(bundle.getString("FuncionarioForm.jLabel10.text")); // NOI18N
+        jLabel10.setName("jLabel10"); // NOI18N
+
+        edtEndereco.setText(bundle.getString("FuncionarioForm.edtEndereco.text")); // NOI18N
+        edtEndereco.setEnabled(false);
+        edtEndereco.setName("edtEndereco"); // NOI18N
+
+        jLabel9.setText(bundle.getString("FuncionarioForm.jLabel9.text")); // NOI18N
+        jLabel9.setName("jLabel9"); // NOI18N
+
+        edtCep.setText(bundle.getString("FuncionarioForm.edtCep.text")); // NOI18N
+        edtCep.setEnabled(false);
+        edtCep.setName("edtCep"); // NOI18N
+
+        jLabel14.setText(bundle.getString("FuncionarioForm.jLabel14.text")); // NOI18N
+        jLabel14.setName("jLabel14"); // NOI18N
+
+        edtCpf.setText(bundle.getString("FuncionarioForm.edtCpf.text")); // NOI18N
+        edtCpf.setEnabled(false);
+        edtCpf.setName("edtCpf"); // NOI18N
+
+        jLabel15.setText(bundle.getString("FuncionarioForm.jLabel15.text")); // NOI18N
+        jLabel15.setName("jLabel15"); // NOI18N
+
+        edtRg.setText(bundle.getString("FuncionarioForm.edtRg.text")); // NOI18N
+        edtRg.setEnabled(false);
+        edtRg.setName("edtRg"); // NOI18N
+
+        chbFun.setSelected(true);
+        chbFun.setText(bundle.getString("FuncionarioForm.chbFun.text")); // NOI18N
+        chbFun.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        chbFun.setEnabled(false);
+        chbFun.setName("chbFun"); // NOI18N
+
+        jSeparator3.setName("jSeparator3"); // NOI18N
+
+        jSeparator4.setName("jSeparator4"); // NOI18N
 
         btnSair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/sair-1.png"))); // NOI18N
         btnSair.setToolTipText(bundle.getString("FuncionarioForm.btnSair.toolTipText")); // NOI18N
@@ -258,69 +318,6 @@ public class FuncionarioForm extends CreditoForm {
         btnNovo.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnNovoActionPerformed(evt);
-            }
-        });
-
-        jLabel1.setText(bundle.getString("FuncionarioForm.jLabel1.text")); // NOI18N
-        jLabel1.setName("jLabel1"); // NOI18N
-
-        edtNome.setText(bundle.getString("FuncionarioForm.edtNome.text")); // NOI18N
-        edtNome.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
-        edtNome.setEnabled(false);
-        edtNome.setName("edtNome"); // NOI18N
-
-        jLabel2.setText(bundle.getString("FuncionarioForm.jLabel2.text")); // NOI18N
-        jLabel2.setName("jLabel2"); // NOI18N
-
-        jLabel3.setText(bundle.getString("FuncionarioForm.jLabel3.text")); // NOI18N
-        jLabel3.setName("jLabel3"); // NOI18N
-
-        edtDataAdm.setEnabled(false);
-        edtDataAdm.setName("edtDataAdm"); // NOI18N
-
-        jLabel4.setText(bundle.getString("FuncionarioForm.jLabel4.text")); // NOI18N
-        jLabel4.setName("jLabel4"); // NOI18N
-
-        edtDataDem.setEnabled(false);
-        edtDataDem.setName("edtDataDem"); // NOI18N
-
-        jLabel5.setText(bundle.getString("FuncionarioForm.jLabel5.text")); // NOI18N
-        jLabel5.setName("jLabel5"); // NOI18N
-
-        jLabel6.setText(bundle.getString("FuncionarioForm.jLabel6.text")); // NOI18N
-        jLabel6.setName("jLabel6"); // NOI18N
-
-        edtCarga.setText(bundle.getString("FuncionarioForm.edtCarga.text")); // NOI18N
-        edtCarga.setEnabled(false);
-        edtCarga.setName("edtCarga"); // NOI18N
-
-        jLabel7.setText(bundle.getString("FuncionarioForm.jLabel7.text")); // NOI18N
-        jLabel7.setName("jLabel7"); // NOI18N
-
-        jLabel8.setText(bundle.getString("FuncionarioForm.jLabel8.text")); // NOI18N
-        jLabel8.setName("jLabel8"); // NOI18N
-
-        jLabel9.setText(bundle.getString("FuncionarioForm.jLabel9.text")); // NOI18N
-        jLabel9.setName("jLabel9"); // NOI18N
-
-        edtCep.setText(bundle.getString("FuncionarioForm.edtCep.text")); // NOI18N
-        edtCep.setEnabled(false);
-        edtCep.setName("edtCep"); // NOI18N
-
-        jLabel10.setText(bundle.getString("FuncionarioForm.jLabel10.text")); // NOI18N
-        jLabel10.setName("jLabel10"); // NOI18N
-
-        edtEndereco.setText(bundle.getString("FuncionarioForm.edtEndereco.text")); // NOI18N
-        edtEndereco.setEnabled(false);
-        edtEndereco.setName("edtEndereco"); // NOI18N
-
-        currencyFormater.CurrencyFormater(edtSalario);
-        edtSalario.setText(bundle.getString("FuncionarioForm.edtSalario.text")); // NOI18N
-        edtSalario.setEnabled(false);
-        edtSalario.setName("edtSalario"); // NOI18N
-        edtSalario.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                edtSalarioActionPerformed(evt);
             }
         });
 
@@ -369,298 +366,285 @@ public class FuncionarioForm extends CreditoForm {
         chbAtivo.setEnabled(false);
         chbAtivo.setName("chbAtivo"); // NOI18N
 
-        jLabel14.setText(bundle.getString("FuncionarioForm.jLabel14.text")); // NOI18N
-        jLabel14.setName("jLabel14"); // NOI18N
-
-        edtCpf.setText(bundle.getString("FuncionarioForm.edtCpf.text")); // NOI18N
-        edtCpf.setEnabled(false);
-        edtCpf.setName("edtCpf"); // NOI18N
-
-        jLabel15.setText(bundle.getString("FuncionarioForm.jLabel15.text")); // NOI18N
-        jLabel15.setName("jLabel15"); // NOI18N
-
-        edtRg.setText(bundle.getString("FuncionarioForm.edtRg.text")); // NOI18N
-        edtRg.setEnabled(false);
-        edtRg.setName("edtRg"); // NOI18N
-
         jSeparator1.setName("jSeparator1"); // NOI18N
 
         jSeparator2.setName("jSeparator2"); // NOI18N
 
-        chbFun.setSelected(true);
-        chbFun.setText(bundle.getString("FuncionarioForm.chbFun.text")); // NOI18N
-        chbFun.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        chbFun.setEnabled(false);
-        chbFun.setName("chbFun"); // NOI18N
+        btnBusscar.setBackground(new java.awt.Color(183, 28, 28));
+        btnBusscar.setForeground(new java.awt.Color(255, 255, 255));
+        btnBusscar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/filtro6.png"))); // NOI18N
+        btnBusscar.setText(bundle.getString("FuncionarioForm.btnBusscar.text")); // NOI18N
+        btnBusscar.setToolTipText(bundle.getString("FuncionarioForm.btnBusscar.toolTipText")); // NOI18N
+        btnBusscar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnBusscar.setName("btnBusscar"); // NOI18N
+        btnBusscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBusscarActionPerformed(evt);
+            }
+        });
 
-        jLabel11.setText(bundle.getString("FuncionarioForm.jLabel11.text")); // NOI18N
-        jLabel11.setName("jLabel11"); // NOI18N
-
-        edtSobrenome.setText(bundle.getString("FuncionarioForm.edtSobrenome.text")); // NOI18N
-        edtSobrenome.setEnabled(false);
-        edtSobrenome.setName("edtSobrenome"); // NOI18N
-
-        org.jdesktop.layout.GroupLayout jPanel2Layout = new org.jdesktop.layout.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
-                .add(55, 55, 55)
-                .add(btnNovo)
-                .add(18, 18, 18)
-                .add(btnSalvar)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                .add(btnCancelar)
-                .add(87, 87, 87)
-                .add(btnSair, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 87, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(0, 0, Short.MAX_VALUE))
-            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(115, 115, 115)
-                        .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jPanel2Layout.createSequentialGroup()
-                                .add(edtNome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 164, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(54, 54, 54)
-                                .add(jLabel11)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .add(edtSobrenome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 187, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(cbbCargo, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2Layout.createSequentialGroup()
-                        .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jPanel2Layout.createSequentialGroup()
-                                .add(24, 24, 24)
-                                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                        .add(jLabel3)
-                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel7)
-                                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel9))
-                                    .add(jLabel5))
-                                .add(35, 35, 35)
-                                .add(edtDataAdm, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 164, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(jPanel2Layout.createSequentialGroup()
-                                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(jPanel2Layout.createSequentialGroup()
-                                        .add(23, 23, 23)
-                                        .add(lblPermissao)
-                                        .add(30, 30, 30))
-                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .add(jLabel14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(33, 33, 33)))
-                                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(edtSalario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 166, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(cbbCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 163, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(edtCep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 91, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(chbUsr, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 139, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(cbbPermissao, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 159, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jPanel2Layout.createSequentialGroup()
-                                        .add(edtCpf, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 126, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                        .add(28, 28, 28)
-                                        .add(chbFun)))))
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 23, Short.MAX_VALUE)
-                        .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(jLabel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 23, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                    .add(jLabel10))
-                                .add(34, 34, 34)
-                                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                    .add(edtEndereco, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 187, Short.MAX_VALUE)
-                                    .add(edtRg)))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .add(chbAtivo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 90, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(95, 95, 95))
-                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
-                                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                                    .add(jLabel4)
-                                    .add(jLabel8)
-                                    .add(jLabel6))
-                                .add(34, 34, 34)
-                                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                                    .add(edtCarga)
-                                    .add(cbbBairro, 0, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .add(edtDataDem, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 187, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel2Layout.createSequentialGroup()
-                        .add(53, 53, 53)
-                        .add(lblLogin)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .add(lblSenha)
-                        .add(36, 36, 36)
-                        .add(edtSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 185, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jSeparator2)
-                    .add(org.jdesktop.layout.GroupLayout.LEADING, jSeparator1))
-                .add(130, 130, 130))
-            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(jPanel2Layout.createSequentialGroup()
-                    .addContainerGap()
-                    .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                        .add(jSeparator3)
-                        .add(jSeparator4))
-                    .addContainerGap(742, Short.MAX_VALUE)))
-            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(jPanel2Layout.createSequentialGroup()
-                    .add(114, 114, 114)
-                    .add(edtLogin, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(479, Short.MAX_VALUE)))
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                        .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(edtNome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(edtSobrenome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                        .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel1))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel11))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(cbbCargo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel2))
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(18, 18, 18)
-                        .add(jLabel3))
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(edtDataDem, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(18, 18, 18)
-                        .add(jLabel4))
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(edtDataAdm, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(12, 12, 12)
-                        .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(edtCarga, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(jLabel6)))
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
-                        .add(edtSalario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jLabel5)))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(cbbBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(cbbCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel8)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel7))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(edtCep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(edtEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel9)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel10))
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jPanel2Layout.createSequentialGroup()
-                        .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                .add(edtCpf, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(org.jdesktop.layout.GroupLayout.TRAILING, edtRg, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel15))
-                            .add(jLabel14))
-                        .add(18, 18, 18))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createSequentialGroup()
-                        .add(chbFun)
-                        .add(6, 6, 6)))
-                .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(10, 10, 10)
-                .add(chbUsr)
-                .add(7, 7, 7)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(edtSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(lblSenha)
-                    .add(lblLogin))
-                .add(15, 15, 15)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                    .add(chbAtivo)
-                    .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(lblPermissao)
-                        .add(cbbPermissao, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .add(26, 26, 26)
-                .add(jSeparator1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 56, Short.MAX_VALUE)
-                .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                        .add(btnNovo)
-                        .add(btnSalvar)
-                        .add(btnCancelar))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, btnSair))
-                .add(17, 17, 17))
-            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(jPanel2Layout.createSequentialGroup()
-                    .add(249, 249, 249)
-                    .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(108, 108, 108)
-                    .add(jSeparator4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-            .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(jPanel2Layout.createSequentialGroup()
-                    .add(305, 305, 305)
-                    .add(edtLogin, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(224, Short.MAX_VALUE)))
-        );
-
-        jScrollPane2.setViewportView(jPanel2);
+        btnRemoverFiltro.setBackground(new java.awt.Color(224, 224, 224));
+        btnRemoverFiltro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Icones/removeFiltro1.png"))); // NOI18N
+        btnRemoverFiltro.setText(bundle.getString("FuncionarioForm.btnRemoverFiltro.text")); // NOI18N
+        btnRemoverFiltro.setToolTipText(bundle.getString("FuncionarioForm.btnRemoverFiltro.toolTipText")); // NOI18N
+        btnRemoverFiltro.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnRemoverFiltro.setName("btnRemoverFiltro"); // NOI18N
+        btnRemoverFiltro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRemoverFiltroActionPerformed(evt);
+            }
+        });
 
         org.jdesktop.layout.GroupLayout jPanel1Layout = new org.jdesktop.layout.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 650, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(jPanel1Layout.createSequentialGroup()
-                        .add(90, 90, 90)
-                        .add(btnBusscar)
-                        .add(18, 18, 18)
-                        .add(btnMTudo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 134, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(14, 14, 14)
+                                .add(jLabel14, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 25, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(33, 33, 33)
+                                .add(edtCpf, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 126, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jLabel2)
+                                    .add(jLabel7))
+                                .add(28, 28, 28)
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                            .add(cbbBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 180, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(jLabel11)
+                                                .add(18, 18, 18)
+                                                .add(edtSobrenome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 158, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                            .add(cbbCargo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 414, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(edtRg, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 180, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                        .add(18, 18, 18)
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(0, 0, Short.MAX_VALUE)
+                                                .add(jLabel5))
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(jLabel3)
+                                                .add(18, 18, 18)
+                                                .add(edtDataAdm, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 164, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                .add(0, 0, Short.MAX_VALUE))))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(cbbCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(65, 65, 65)
+                                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING, false)
+                                                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                                        .add(jPanel1Layout.createSequentialGroup()
+                                                            .add(lblPermissao)
+                                                            .add(30, 30, 30)
+                                                            .add(cbbPermissao, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 159, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                            .add(160, 160, 160)
+                                                            .add(chbAtivo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 90, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                                        .add(jPanel1Layout.createSequentialGroup()
+                                                            .add(38, 38, 38)
+                                                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                                                .add(chbUsr, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 139, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                                .add(jPanel1Layout.createSequentialGroup()
+                                                                    .add(lblLogin)
+                                                                    .add(30, 30, 30)
+                                                                    .add(edtLogin, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 155, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                                            .add(92, 92, 92)
+                                                            .add(lblSenha)
+                                                            .add(36, 36, 36)
+                                                            .add(edtSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 185, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                                    .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
+                                                        .add(108, 108, 108)
+                                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                                                            .add(jLabel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 23, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                                            .add(jLabel8))
+                                                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .add(jLabel10)))))
+                                        .add(89, 89, 89))))
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(jLabel1)
+                                .add(34, 34, 34)
+                                .add(edtNome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 136, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(559, 559, 559)
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(edtEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 158, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(chbFun)
+                                            .add(edtSalario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 164, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(26, 26, 26)
+                                                .add(jLabel4))
+                                            .add(jPanel1Layout.createSequentialGroup()
+                                                .add(36, 36, 36)
+                                                .add(jLabel6))
+                                            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                                .add(jLabel9)))
+                                        .add(18, 18, 18)
+                                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                            .add(edtDataDem, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 187, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(edtCarga, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 187, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(edtCep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 187, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(btnBusscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 109, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(40, 40, 40)
+                                        .add(btnRemoverFiltro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 103, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
                     .add(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 633, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(1295, Short.MAX_VALUE))
+                        .add(300, 300, 300)
+                        .add(btnNovo)
+                        .add(61, 61, 61)
+                        .add(btnSalvar)
+                        .add(48, 48, 48)
+                        .add(btnCancelar)
+                        .add(109, 109, 109)
+                        .add(btnSair, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 87, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 1246, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1Layout.createSequentialGroup()
+                    .add(4, 4, 4)
+                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                        .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 1257, Short.MAX_VALUE)
+                        .add(jSeparator2)
+                        .add(jPanel1Layout.createSequentialGroup()
+                            .add(6, 6, 6)
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jSeparator4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                    .add(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(0, 0, Short.MAX_VALUE)
+                .add(40, 40, 40)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(46, 46, 46)
+                        .add(jLabel5)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel9)
+                            .add(edtCep, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                    .add(edtNome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                                        .add(edtSobrenome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                        .add(jLabel3))
+                                    .add(jPanel1Layout.createSequentialGroup()
+                                        .add(12, 12, 12)
+                                        .add(jLabel1))
+                                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jLabel11))
+                                .add(18, 18, 18)
+                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                                    .add(cbbCargo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(jLabel2)))
+                            .add(edtDataAdm, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(cbbCidade, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel7)
+                            .add(jLabel8)
+                            .add(cbbBairro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jLabel10)
+                            .add(edtEndereco, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(14, 14, 14)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(edtCpf, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(chbFun)
+                                .add(jPanel1Layout.createSequentialGroup()
+                                    .add(12, 12, 12)
+                                    .add(jLabel14)))
+                            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                                .add(jLabel15)
+                                .add(edtRg, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(jLabel4)
+                            .add(edtDataDem, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel6)
+                            .add(edtCarga, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(6, 6, 6)
+                                .add(edtSalario, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))))
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 52, Short.MAX_VALUE)
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                            .add(btnBusscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 31, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(btnMTudo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 31, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(chbUsr)
                         .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 457, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(31, 31, 31))
-                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 578, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(6, 6, 6)
+                                .add(lblLogin))
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(2, 2, 2)
+                                .add(edtLogin, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(6, 6, 6)
+                                .add(lblSenha))
+                            .add(edtSenha, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(5, 5, 5)
+                                .add(lblPermissao))
+                            .add(cbbPermissao, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(8, 8, 8)
+                                .add(chbAtivo))))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                        .add(btnBusscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 76, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(btnRemoverFiltro)))
+                .add(56, 56, 56)
+                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 178, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(btnNovo)
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(btnCancelar)
+                            .add(btnSalvar)
+                            .add(btnSair))
+                        .addContainerGap())))
+            .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(jPanel1Layout.createSequentialGroup()
+                    .add(0, 177, Short.MAX_VALUE)
+                    .add(jSeparator3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(34, 34, 34)
+                    .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(64, 64, 64)
+                    .add(jSeparator4, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(65, 65, 65)
+                    .add(jSeparator1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(0, 288, Short.MAX_VALUE)))
         );
 
         org.jdesktop.layout.GroupLayout layout = new org.jdesktop.layout.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(layout.createSequentialGroup()
-                .addContainerGap(org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .add(jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 1253, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-            .add(jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         getAccessibleContext().setAccessibleName(bundle.getString("FuncionarioForm.AccessibleContext.accessibleName")); // NOI18N
 
-        setBounds(40, 50, 1310, 583);
+        setBounds(40, 50, 1265, 691);
     }// </editor-fold>//GEN-END:initComponents
 
 
@@ -668,9 +652,7 @@ public class FuncionarioForm extends CreditoForm {
      * Sair form.
      */
     public void sairForm(){
-        if (Controlar.fecharForm()) {
-            dispose();
-        }
+        ConfiguracaoMaster.fecharForm(this);
     }
     
     private void btnSairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSairActionPerformed
@@ -739,7 +721,7 @@ public class FuncionarioForm extends CreditoForm {
         btnNovo.setEnabled(!valor);
         btnSalvar.setEnabled(valor);
         btnBusscar.setEnabled(!valor);
-        btnMTudo.setEnabled(!valor);
+        btnRemoverFiltro.setEnabled(!valor);
         btnCancelar.setEnabled(valor);        
         
       
@@ -787,16 +769,6 @@ public class FuncionarioForm extends CreditoForm {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbbPermissaoActionPerformed
 
-    private void btnBusscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusscarActionPerformed
-
-        
-    }//GEN-LAST:event_btnBusscarActionPerformed
-
-    private void btnMTudoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMTudoActionPerformed
-
-        
-    }//GEN-LAST:event_btnMTudoActionPerformed
-
     private void edtSalarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_edtSalarioActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_edtSalarioActionPerformed
@@ -820,12 +792,20 @@ public class FuncionarioForm extends CreditoForm {
        
     }//GEN-LAST:event_cbbCidadeItemStateChanged
 
+    private void btnBusscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBusscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBusscarActionPerformed
+
+    private void btnRemoverFiltroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverFiltroActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnRemoverFiltroActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBusscar;
     private javax.swing.JButton btnCancelar;
-    private javax.swing.JButton btnMTudo;
     private javax.swing.JButton btnNovo;
+    private javax.swing.JButton btnRemoverFiltro;
     private javax.swing.JButton btnSair;
     private javax.swing.JButton btnSalvar;
     private javax.swing.JComboBox<String> cbbBairro;
@@ -861,9 +841,7 @@ public class FuncionarioForm extends CreditoForm {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JSeparator jSeparator3;
@@ -878,7 +856,7 @@ public class FuncionarioForm extends CreditoForm {
         btnNovo.setEnabled(!valor);
         btnSalvar.setEnabled(valor);
         btnBusscar.setEnabled(!valor);
-        btnMTudo.setEnabled(!valor);
+        btnRemoverFiltro.setEnabled(!valor);
         btnCancelar.setEnabled(valor);
     }
 

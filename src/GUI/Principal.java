@@ -1,7 +1,7 @@
 package GUI;
 
 import Beans.LoginBeans;
-import Controller.Controlar;
+import Controller.ConfiguracaoMaster;
 import Utilitarios.FundoTela;
 
 import javax.swing.*;
@@ -345,9 +345,7 @@ public class Principal extends javax.swing.JFrame {
      * Metodo sair.
      */
     public void metodoSair() {
-        if (Controlar.fecharForm()) {
-            System.exit(0);
-        }
+        ConfiguracaoMaster.fecharForm();
     }
 
     /**

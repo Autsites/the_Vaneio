@@ -4,7 +4,7 @@ package GUI;
 import Beans.ClienteBeans;
 import Beans.LoginBeans;
 import Controller.ClienteController;
-import Controller.Controlar;
+import Controller.ConfiguracaoMaster;
 import static GUI.Principal.controleInternal;
 
 import java.awt.*;
@@ -61,6 +61,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        rgpSexo = new javax.swing.ButtonGroup();
         pnlPrincipal = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
@@ -119,11 +120,14 @@ public class ClienteForm extends javax.swing.JInternalFrame {
         btnCancelar = new javax.swing.JButton();
         btnSair = new javax.swing.JButton();
         lblCel1 = new javax.swing.JLabel();
+        pnlSexo = new javax.swing.JPanel();
+        rbtnFem = new javax.swing.JRadioButton();
+        rbtnMasc = new javax.swing.JRadioButton();
 
         setIconifiable(true);
         java.util.ResourceBundle bundle = java.util.ResourceBundle.getBundle("GUI/Bundle"); // NOI18N
         setTitle(bundle.getString("ClienteForm.title")); // NOI18N
-        setName("frmCliente"); // NOI18N
+        setName("frmClientes"); // NOI18N
         setPreferredSize(new java.awt.Dimension(990, 740));
         getContentPane().setLayout(null);
 
@@ -352,94 +356,140 @@ public class ClienteForm extends javax.swing.JInternalFrame {
         lblCel1.setText(bundle.getString("ClienteForm.lblCel1.text_1")); // NOI18N
         lblCel1.setName("lblCel1"); // NOI18N
 
+        pnlSexo.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createEtchedBorder(), bundle.getString("ClienteForm.pnlSexo.border.title"), javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.TOP)); // NOI18N
+        pnlSexo.setName("pnlSexo"); // NOI18N
+
+        rgpSexo.add(rbtnFem);
+        rbtnFem.setText(bundle.getString("ClienteForm.rbtnFem.text")); // NOI18N
+        rbtnFem.setName("rbtnFem"); // NOI18N
+
+        rgpSexo.add(rbtnMasc);
+        rbtnMasc.setSelected(true);
+        rbtnMasc.setText(bundle.getString("ClienteForm.rbtnMasc.text")); // NOI18N
+        rbtnMasc.setName("rbtnMasc"); // NOI18N
+        rbtnMasc.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                rbtnMascItemStateChanged(evt);
+            }
+        });
+
+        org.jdesktop.layout.GroupLayout pnlSexoLayout = new org.jdesktop.layout.GroupLayout(pnlSexo);
+        pnlSexo.setLayout(pnlSexoLayout);
+        pnlSexoLayout.setHorizontalGroup(
+            pnlSexoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(pnlSexoLayout.createSequentialGroup()
+                .add(pnlSexoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(rbtnFem)
+                    .add(rbtnMasc))
+                .add(0, 10, Short.MAX_VALUE))
+        );
+        pnlSexoLayout.setVerticalGroup(
+            pnlSexoLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+            .add(org.jdesktop.layout.GroupLayout.TRAILING, pnlSexoLayout.createSequentialGroup()
+                .add(rbtnMasc)
+                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, 10, Short.MAX_VALUE)
+                .add(rbtnFem))
+        );
+
+        rbtnFem.getAccessibleContext().setAccessibleParent(this);
+        rbtnMasc.getAccessibleContext().setAccessibleDescription(bundle.getString("ClienteForm.rbtnMasc.AccessibleContext.accessibleDescription")); // NOI18N
+        rbtnMasc.getAccessibleContext().setAccessibleParent(this);
+
         org.jdesktop.layout.GroupLayout pnlPrincipalLayout = new org.jdesktop.layout.GroupLayout(pnlPrincipal);
         pnlPrincipal.setLayout(pnlPrincipalLayout);
         pnlPrincipalLayout.setHorizontalGroup(
             pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(pnlPrincipalLayout.createSequentialGroup()
-                .add(49, 49, 49)
-                .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
                     .add(pnlPrincipalLayout.createSequentialGroup()
-                        .add(jLabel1)
-                        .add(20, 20, 20)
-                        .add(btnNovoCliente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 94, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(edtID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 158, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(lblEmail, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 38, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(14, 14, 14)
-                .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel13)
-                    .add(edtReferencia, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 178, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(jLabel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 52, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(6, 6, 6)
-                .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(pnlPrincipalLayout.createSequentialGroup()
-                        .add(edtNome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 158, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                        .add(12, 12, 12)
-                        .add(edtSobrenome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 178, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                    .add(pnlPrincipalLayout.createSequentialGroup()
-                        .add(4, 4, 4)
-                        .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(pnlPrincipalLayout.createSequentialGroup()
-                                .add(jLabel2)
-                                .add(132, 132, 132)
-                                .add(jLabel12))
-                            .add(pnlPrincipalLayout.createSequentialGroup()
-                                .add(lblCel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                                .add(25, 25, 25)
-                                .add(jLabel6)
-                                .add(113, 113, 113)
-                                .add(jLabel7)))))
-                .add(21, 21, 21)
-                .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 54, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                    .add(btnEndereco))
-                .add(18, 18, 18)
-                .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel5)
-                    .add(btnTelefone)))
-            .add(pnlPrincipalLayout.createSequentialGroup()
-                .add(49, 49, 49)
-                .add(edtEmail, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 158, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(12, 12, 12)
-                .add(edtOperador, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 184, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(6, 6, 6)
-                .add(edtNascimento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 79, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(6, 6, 6)
-                .add(edtCadastro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(12, 12, 12)
-                .add(edtRG, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 95, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(6, 6, 6)
-                .add(edtCPF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(18, 18, 18)
-                .add(cbxStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 82, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(pnlPrincipalLayout.createSequentialGroup()
-                .add(219, 219, 219)
-                .add(btnBusscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 109, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(40, 40, 40)
-                .add(btnRemoverFiltro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 103, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(77, 77, 77)
-                .add(jLabel3)
-                .add(12, 12, 12)
-                .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 326, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jSeparator1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 1030, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-            .add(pnlPrincipalLayout.createSequentialGroup()
-                .add(6, 6, 6)
-                .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 1024, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 1030, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-            .add(pnlPrincipalLayout.createSequentialGroup()
-                .add(167, 167, 167)
-                .add(btnNovo)
-                .add(18, 18, 18)
-                .add(btnSalvar)
-                .add(18, 18, 18)
-                .add(btnCancelar)
-                .add(285, 285, 285)
-                .add(btnSair, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 87, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-            .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(pnlPrincipalLayout.createSequentialGroup()
-                    .add(506, 506, 506)
-                    .add(lblCel1)
-                    .addContainerGap(506, Short.MAX_VALUE)))
+                        .addContainerGap()
+                        .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 1024, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                        .add(pnlPrincipalLayout.createSequentialGroup()
+                            .add(49, 49, 49)
+                            .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(pnlPrincipalLayout.createSequentialGroup()
+                                    .add(jLabel1)
+                                    .add(20, 20, 20)
+                                    .add(btnNovoCliente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 94, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(edtID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 158, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(pnlPrincipalLayout.createSequentialGroup()
+                                    .add(6, 6, 6)
+                                    .add(lblEmail)))
+                            .add(14, 14, 14)
+                            .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jLabel13)
+                                .add(edtReferencia, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 178, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(jLabel15, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 52, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(6, 6, 6)
+                            .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
+                                .add(pnlPrincipalLayout.createSequentialGroup()
+                                    .add(edtNome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 158, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(12, 12, 12)
+                                    .add(edtSobrenome, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 178, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(pnlPrincipalLayout.createSequentialGroup()
+                                    .add(4, 4, 4)
+                                    .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                        .add(pnlPrincipalLayout.createSequentialGroup()
+                                            .add(jLabel2)
+                                            .add(132, 132, 132)
+                                            .add(jLabel12))
+                                        .add(pnlPrincipalLayout.createSequentialGroup()
+                                            .add(lblCel, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 60, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                            .add(25, 25, 25)
+                                            .add(jLabel6)
+                                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                            .add(lblCel1)
+                                            .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .add(jLabel7)
+                                            .add(25, 25, 25)))))
+                            .add(21, 21, 21)
+                            .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jLabel11, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 54, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                .add(btnEndereco))
+                            .add(18, 18, 18)
+                            .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(jLabel5)
+                                .add(btnTelefone)))
+                        .add(jSeparator1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 1030, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 1030, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                        .add(pnlPrincipalLayout.createSequentialGroup()
+                            .add(167, 167, 167)
+                            .add(btnNovo)
+                            .add(18, 18, 18)
+                            .add(btnSalvar)
+                            .add(18, 18, 18)
+                            .add(btnCancelar)
+                            .add(285, 285, 285)
+                            .add(btnSair, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 87, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(pnlPrincipalLayout.createSequentialGroup()
+                            .add(50, 50, 50)
+                            .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                                .add(pnlPrincipalLayout.createSequentialGroup()
+                                    .add(edtEmail, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 157, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(12, 12, 12)
+                                    .add(edtOperador, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 184, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(6, 6, 6)
+                                    .add(edtNascimento, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 79, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(6, 6, 6)
+                                    .add(edtCadastro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 97, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.UNRELATED)
+                                    .add(edtRG, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 95, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                                    .add(edtCPF, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 108, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(18, 18, 18)
+                                    .add(cbxStatus, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 82, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                                .add(pnlPrincipalLayout.createSequentialGroup()
+                                    .add(pnlSexo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(43, 43, 43)
+                                    .add(btnBusscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 109, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(40, 40, 40)
+                                    .add(btnRemoverFiltro, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 103, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                                    .add(77, 77, 77)
+                                    .add(jLabel3)
+                                    .add(12, 12, 12)
+                                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 326, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))))))
+                .add(10, 10, 10))
         );
         pnlPrincipalLayout.setVerticalGroup(
             pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -448,17 +498,17 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                 .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(pnlPrincipalLayout.createSequentialGroup()
                         .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(pnlPrincipalLayout.createSequentialGroup()
-                                .add(20, 20, 20)
-                                .add(jLabel1))
-                            .add(btnNovoCliente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 40, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                            .add(btnNovoCliente, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 40, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                            .add(org.jdesktop.layout.GroupLayout.TRAILING, pnlPrincipalLayout.createSequentialGroup()
+                                .add(jLabel1)
+                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
                         .add(edtID, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(6, 6, 6)
                         .add(lblEmail))
                     .add(pnlPrincipalLayout.createSequentialGroup()
                         .add(18, 18, 18)
                         .add(jLabel13)
-                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(6, 6, 6)
                         .add(edtReferencia, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                         .add(6, 6, 6)
                         .add(jLabel15))
@@ -476,7 +526,9 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                         .add(6, 6, 6)
                         .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                             .add(lblCel)
-                            .add(jLabel6)
+                            .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                                .add(jLabel6)
+                                .add(lblCel1))
                             .add(jLabel7)))
                     .add(pnlPrincipalLayout.createSequentialGroup()
                         .add(16, 16, 16)
@@ -499,20 +551,26 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                     .add(pnlPrincipalLayout.createSequentialGroup()
                         .add(5, 5, 5)
                         .add(cbxStatus)))
-                .add(18, 18, 18)
+                .add(6, 6, 6)
                 .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jLabel3)
-                    .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 109, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
+                    .add(pnlSexo, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                     .add(pnlPrincipalLayout.createSequentialGroup()
-                        .add(33, 33, 33)
-                        .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(btnBusscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 76, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                            .add(btnRemoverFiltro))))
+                        .add(45, 45, 45)
+                        .add(btnBusscar, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 76, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                    .add(pnlPrincipalLayout.createSequentialGroup()
+                        .add(45, 45, 45)
+                        .add(btnRemoverFiltro))
+                    .add(pnlPrincipalLayout.createSequentialGroup()
+                        .add(12, 12, 12)
+                        .add(jLabel3))
+                    .add(pnlPrincipalLayout.createSequentialGroup()
+                        .add(12, 12, 12)
+                        .add(jScrollPane1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 109, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
                 .add(18, 18, 18)
                 .add(jSeparator1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(6, 6, 6)
+                .add(9, 9, 9)
                 .add(jScrollPane2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 203, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
-                .add(6, 6, 6)
+                .add(3, 3, 3)
                 .add(jSeparator2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 10, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(12, 12, 12)
                 .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
@@ -520,11 +578,6 @@ public class ClienteForm extends javax.swing.JInternalFrame {
                     .add(btnSalvar)
                     .add(btnCancelar)
                     .add(btnSair)))
-            .add(pnlPrincipalLayout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                .add(pnlPrincipalLayout.createSequentialGroup()
-                    .add(297, 297, 297)
-                    .add(lblCel1)
-                    .addContainerGap(297, Short.MAX_VALUE)))
         );
 
         getContentPane().add(pnlPrincipal);
@@ -611,6 +664,35 @@ public class ClienteForm extends javax.swing.JInternalFrame {
         
     }//GEN-LAST:event_btnEnderecoActionPerformed
 
+    public JRadioButton getRbtnFem() {
+        return rbtnFem;
+    }
+
+    public void setRbtnFem(JRadioButton rbtnFem) {
+        this.rbtnFem = rbtnFem;
+    }
+
+    public JRadioButton getRbtnMasc() {
+        return rbtnMasc;
+    }
+
+    public void setRbtnMasc(JRadioButton rbtnMasc) {
+        this.rbtnMasc = rbtnMasc;
+    }
+
+    public ButtonGroup getRgpSexo() {
+        return rgpSexo;
+    }
+
+    public void setRgpSexo(ButtonGroup rgpSexo) {
+        this.rgpSexo = rgpSexo;
+    }
+        
+    private void rbtnMascItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_rbtnMascItemStateChanged
+        // TODO add your handling code here:
+       
+    }//GEN-LAST:event_rbtnMascItemStateChanged
+
     public  JPanel getPnl(){
         return pnlPrincipal;
     }
@@ -655,6 +737,10 @@ public class ClienteForm extends javax.swing.JInternalFrame {
     private javax.swing.JLabel lblCel1;
     private javax.swing.JLabel lblEmail;
     private javax.swing.JPanel pnlPrincipal;
+    private javax.swing.JPanel pnlSexo;
+    private javax.swing.JRadioButton rbtnFem;
+    private javax.swing.JRadioButton rbtnMasc;
+    private javax.swing.ButtonGroup rgpSexo;
     private javax.swing.JTable tblCliente;
     // End of variables declaration//GEN-END:variables
 
@@ -721,7 +807,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
         ClienteB.setDataNasc(edtNascimento.getText()); ClienteB.setDataCad(edtCadastro.getText());
         ClienteB.setRg(edtRG.getText()); ClienteB.setCpf(edtCPF.getText());
         ClienteB.setAtivo(cbxStatus.isSelected());
-       
+        
     }
 
     private void cancelarOperacao() {
@@ -741,9 +827,7 @@ public class ClienteForm extends javax.swing.JInternalFrame {
     }
 
     private void sairForm() {
-        if (Controlar.fecharForm()) {
-            dispose();
-        }
+        ConfiguracaoMaster.fecharForm(this);
     }
 
     private void acaoTbl() {
@@ -760,12 +844,12 @@ public class ClienteForm extends javax.swing.JInternalFrame {
         edtNascimento.setText(ClienteB.getDataNasc()); edtCadastro.setText(ClienteB.getDataCad());
         edtRG.setText(ClienteB.getRg()); edtCPF.setText(ClienteB.getCpf());
         cbxStatus.setSelected(ClienteB.getAtivo());
-        
+       
         if (cbxStatus.isSelected()) {
             cbxStatus.setText("Ativo");
         } else {
             cbxStatus.setText("Inativo");
         }
     }
-
+   
 }

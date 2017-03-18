@@ -6,7 +6,7 @@
 package GUI;
 
 import Beans.LoginBeans;
-import Controller.Controlar;
+import Controller.ConfiguracaoMaster;
 import Controller.LoginController;
 import java.awt.event.KeyEvent;
 import javax.swing.ImageIcon;
@@ -85,7 +85,7 @@ public class Login extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle(Controlar.get$titulo());
+        setTitle(ConfiguracaoMaster.get$titulo());
         setName("frmLogin"); // NOI18N
         setUndecorated(true);
         setResizable(false);
@@ -245,9 +245,7 @@ public class Login extends javax.swing.JFrame {
      * Metodo sair.
      */
     public void metodoSair() {
-        if (Controlar.fecharForm()) {
-            System.exit(0);
-        }
+        ConfiguracaoMaster.fecharForm();
     }
 
     /**

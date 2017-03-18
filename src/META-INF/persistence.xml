@@ -3,6 +3,7 @@
   <persistence-unit name="NewPizzariaPU" transaction-type="RESOURCE_LOCAL">
     <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
     <class>Beans.Clientes</class>
+    <class>GUI.Clientes</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/pizzaria"/>
       <property name="javax.persistence.jdbc.user" value="postgres"/>

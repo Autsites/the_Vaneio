@@ -40,7 +40,7 @@ public class LoginDAO {
        
         String SQLSelect = "SELECT login.usuario as usuario, login.senha as senha, login.ativo as ativo, login.id_permissao as permissao,\n" +
                 "  funcionarios.nome as funcionarios FROM login \n" +
-                "  INNER JOIN funcionarios ON login.id_funcionario = funcionarios.id WHERE  usuario = ? and senha = ?";
+                "  INNER JOIN funcionarios ON login.id_funcionario = funcionarios.id WHERE  usuario = ? and senha = md5(?)";
         //JOptionPane.showMessageDialog(null, SQLSelect);
         try {
 
@@ -80,20 +80,20 @@ public class LoginDAO {
                     
                     return true;
                 } else {
-                    JOptionPane.showMessageDialog(null, "Usuário inativo, contate o administrador", "Aviso", 0, new ImageIcon("imagens/User-2.png"));
+                    JOptionPane.showMessageDialog(null, "Usuário inativo, contate o administrador", "Aviso", 0, new ImageIcon(getClass().getResource("/Icones/User-2.png")));
                     Conexao.fecharConexao();
                     return false;
                 }
             } else {
 
-                JOptionPane.showMessageDialog(null, "Usuário ou senha inválido", "Erro", 0, new ImageIcon("imagens/User-1.png"));
+                JOptionPane.showMessageDialog(null, "Usuário ou senha inválido", "Erro", 0, new ImageIcon(getClass().getResource("/Icones/User-1.png")));
                 Conexao.fecharConexao();
                 return false;
             }
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),
-                    null, 0, new ImageIcon("imagens/Error-128.png"));
+                    null, 0, new ImageIcon(getClass().getResource("/Icones/Error-128.png")));
 
             return false;
         }

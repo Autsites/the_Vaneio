@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal">
+    <data-source name="Pizzaria" uuid="f30c9f2f-59be-4fe1-bbe5-f9dd5e73c09d">
+      <database-info product="PostgreSQL" version="9.3.4" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>ug2zwd0sdwvpbaqkcnz1</user-name>
+      <resolve-scope>b0vgpytupagaeif:public,ug2zwd0sdwvpbaqkcnz1</resolve-scope>
+    </data-source>
+    <data-source name="pizzaria@localhost" uuid="32f858d7-06cd-47d3-bdb8-553f31072027">
+      <database-info product="PostgreSQL" version="9.6.1" jdbc-version="4.0" driver-name="PostgreSQL Native Driver" driver-version="PostgreSQL 9.4 JDBC4 (build 1201)">
+        <identifier-quote-string>&quot;</identifier-quote-string>
+      </database-info>
+      <case-sensitivity plain-identifiers="lower" quoted-identifiers="exact" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>postgres</user-name>
+      <resolve-scope>postgres:postgres,public</resolve-scope>
+    </data-source>
+  </component>
+</project>

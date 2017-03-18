@@ -2,7 +2,6 @@
 package DAO;
 
 import Utilitarios.Conexao;
-import static Utilitarios.Corretor.ConverterStatusJava;
 import java.sql.Array;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -12,7 +11,6 @@ import java.util.Collections;
 import java.util.List;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
 
 
 /**

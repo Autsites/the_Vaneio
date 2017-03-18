@@ -1,7 +1,6 @@
 package DAO;
 
 import Beans.ClienteBeans;
-import Beans.LoginBeans;
 import Utilitarios.Conexao;
 import Utilitarios.Corretor;
 import java.sql.PreparedStatement;
@@ -11,9 +10,6 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import static Utilitarios.Corretor.ConverterStatusJava;
-import java.sql.Array;
-import java.util.Arrays;
-import java.util.List;
 
 /**
  * The type Cliente dao.
@@ -60,7 +56,8 @@ public class ClienteDAO {
                     e.getMessage(),
                     null, 
                     0, 
-                    new ImageIcon("/Icones/Error-2.png"));
+                    new ImageIcon(getClass().getResource("/Icones/Error-2.png"))
+            );
 
         }
 
@@ -112,7 +109,8 @@ public class ClienteDAO {
 
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, e.getMessage(),
-                    null, 0, new ImageIcon("/Icones/Error-2.png"));
+                    null, 0, new ImageIcon(getClass().getResource("/Icones/Error-2.png"))
+            );
 
         }
         //||||||||||||||||||||||||
@@ -156,7 +154,7 @@ public class ClienteDAO {
             JOptionPane.showMessageDialog(null, "Alterado com Sucesso", null, 0, new ImageIcon("/Icones/Success-2.png"));
 
         } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage(), null, 0, new ImageIcon("/Icones/Error-2.png"));
+            JOptionPane.showMessageDialog(null, e.getMessage(), null, 0, new ImageIcon(getClass().getResource("/Icones/Error-2.png")));
         }
 
         //||||||||||||||||||||||||
@@ -268,7 +266,7 @@ public class ClienteDAO {
                                 "clientes.telefone_descricao as descricao, funcionarios.nome as operador, clientes.data_nasc as data_nasc,\n" +
                                 "clientes.referencia as referencia, (clientes.telefone) as telefone, clientes.ativo as ativo\n" +
                                 "FROM clientes INNER JOIN bairros on bairros.id = any(clientes.id_bairro::INTEGER[]) INNER JOIN funcionarios\n" +
-                                "on clientes.id_operador = funcionarios.id GROUP BY clientes.id,funcionarios.nome";
+                                "on clientes.id_funcionario = funcionarios.id GROUP BY clientes.id,funcionarios.nome";
             PreparedStatement st = Conexao.getConnection().prepareStatement(SQLSelect);
             ResultSet rs = st.executeQuery();
 

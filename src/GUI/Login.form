@@ -4,7 +4,7 @@
   <Properties>
     <Property name="defaultCloseOperation" type="int" value="3"/>
     <Property name="title" type="java.lang.String" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-      <Connection code="Controlar.get$titulo()" type="code"/>
+      <Connection code="Controller.ConfiguracaoMaster.get$titulo()" type="code"/>
     </Property>
     <Property name="name" type="java.lang.String" value="frmLogin" noResource="true"/>
     <Property name="undecorated" type="boolean" value="true"/>

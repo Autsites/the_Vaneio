@@ -46,21 +46,21 @@ public class Conexao {
     private final String $pass = "postgres123";
     */
     
-    //Amazon AWS Connect
+    /* //Amazon AWS Connect
     private final String $link = "postgresql";
-    private final String $host = "newpizzaria.conbhj1a9uvn.sa-east-1.rds.amazonaws.com";
+    private final String $host = "b0vgpytupagaeif-postgresql.services.clever-cloud.com";
     private final String $port = "5432";
-    private final String $bank = "pizzaria";
+    private final String $bank = "b0vgpytupagaeif";
     
     private final String $driver = "org.postgresql.Driver";
     
-    private final String $user = "postgres";
-    private final String $pass = "postgres123";
-    
+    private final String $user = "ug2zwd0sdwvpbaqkcnz1";
+    private final String $pass = "FGLmG8CGQYVQ6dnHKzxd";
+    */
     
     //Properties Config = new Properties();
 
-       /* Etec PostgreSQL Connect
+        //Etec PostgreSQL Connect
     private String $link = "postgresql";
     private  String $host = "localhost";
     private  String $port = "5432";
@@ -69,8 +69,8 @@ public class Conexao {
     private  String $driver = "org.postgresql.Driver";
     
     private  String $user = "postgres";
-    private  String $pass = "etecjau";
-    */
+    private  String $pass = "root";
+    
     
     private  String $juntar = "jdbc:"+$link+"://"+$host+":"+$port+"/"+$bank;
 
